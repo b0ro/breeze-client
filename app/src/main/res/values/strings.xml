@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Breeze</string>
+    <string name="refresh">Refresh</string>
+    <string name="resultsRefreshed">Refreshed</string>
+    <string name="resultDefaultValue">value</string>
+</resources>
