@@ -16,7 +16,7 @@ import java.time.Instant
 interface ApiClient {
 
     @POST("api/peak-flows")
-    fun create(@Body peakFlow: PeakFlow): Completable
+    fun create(@Body request: ApiRequest): Completable
 
     @GET("api/peak-flows")
     fun getAll(): Observable<List<PeakFlow>>

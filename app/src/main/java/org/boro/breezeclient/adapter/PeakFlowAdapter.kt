@@ -4,19 +4,21 @@ import android.content.Context
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.list_item.view.*
+import org.boro.breezeclient.R
 import org.boro.breezeclient.adapter.rest.ApiClient
 import org.boro.breezeclient.adapter.rest.ApiRequest
-import org.boro.breezeclient.R
 import org.boro.breezeclient.domain.PeakFlow
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -51,7 +53,11 @@ class PeakFlowAdapter(val context: Context) :
     }
 
     fun create(peakFlow: PeakFlow) {
-        client.create(peakFlow)
+        val request = ApiRequest(
+            value = peakFlow.value,
+            checkedAt = peakFlow.checkedAt
+        )
+        client.create(request)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ refresh() }, { error ->
@@ -100,10 +106,34 @@ class PeakFlowAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: LungCapacityViewHolder, position: Int) {
         holder.view.value.text = results[position].value.toString()
-        holder.view.createdAt.text = formatter.format(results[position].checkedAt)
+        holder.view.checkedAt.text = formatter.format(results[position].checkedAt)
+        holder.view.moreActions.setOnClickListener {showMoreActionsPopup(holder, results[position])}
+    }
 
-//        holder.view.editButton.setOnClickListener {showUpdateDialog(holder, results[position])}
-//        holder.view.deleteButton.setOnClickListener {showDeleteDialog(holder, results[position])}
+    private fun showMoreActionsPopup(
+        holder: LungCapacityViewHolder,
+        peakFlow: PeakFlow
+    ) {
+        //creating a popup menu
+        val popup = PopupMenu(context, holder.view.moreActions)
+
+        //inflating menu from xml resource
+        popup.inflate(R.menu.options_menu)
+
+        //adding click listener
+        popup.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
+            PopupMenu.OnMenuItemClickListener {
+            override fun onMenuItemClick(item: MenuItem): Boolean {
+                when (item.getItemId()) {
+                    R.id.editOption -> {showUpdateDialog(holder, peakFlow)}
+                    R.id.deleteOption -> {showDeleteDialog(holder, peakFlow)}
+                }
+                return false
+            }
+        })
+
+        //displaying the popup
+        popup.show()
     }
 
     override fun getItemCount() = results.size

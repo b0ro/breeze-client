@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Breeze</string>
     <string name="refresh">Refresh</string>
-    <string name="resultsRefreshed">Refreshed</string>
-    <string name="resultDefaultValue">value</string>
+    <string name="peak_flow_list_refreshed">Refreshed</string>
+    <string name="peak_flow_default_value">600</string>
+    <string name="peak_flow_unit">L/min</string>
+    <string name="checked_at_default_value">16 June</string>
+    <string name="edit_peak_flow">Edit</string>
+    <string name="delete_peak_flow">Delete</string>
 </resources>

@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem) = when(item.itemId) {
         R.id.refreshButton -> {
             adapter.refresh()
-            Toast.makeText(this.baseContext, R.string.resultsRefreshed, Toast.LENGTH_LONG).show()
+            Toast.makeText(this.baseContext, R.string.peak_flow_list_refreshed, Toast.LENGTH_LONG).show()
             true
         } else -> {
             super.onOptionsItemSelected(item)
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Save") { dialog, whichButton ->
                 val result = PeakFlow(
                     value = input.text.toString().toInt(),
-                    checkedAt = Instant.now()
+                    checkedAt = Instant.now().minusSeconds(1L)
                 )
                 adapter.create(result)
             }

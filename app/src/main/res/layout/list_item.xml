@@ -6,11 +6,9 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="3dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
     android:layout_marginTop="8dp"
-    android:padding="3dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="44dp"
-            android:text="600"
+            android:text="@string/peak_flow_default_value"
             android:textAlignment="textEnd"
             android:textColor="@color/secondaryTextColor"
             android:textSize="16sp"
@@ -37,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="L/min"
+            android:text="@string/peak_flow_unit"
             android:textAlignment="textEnd"
             android:textColor="@color/secondaryTextColor"
             android:textSize="16sp"
@@ -46,20 +44,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/createdAt"
+            android:id="@+id/checkedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
-            android:text="16 June"
+            android:text="@string/checked_at_default_value"
             android:textAlignment="viewEnd"
             android:textColor="@color/secondaryTextColorLight"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/moreActions"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/moreActions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
@@ -71,7 +69,7 @@
             app:srcCompat="@drawable/ic_round_more_vert" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/status"
             android:layout_width="32dp"
             android:layout_height="31dp"
             android:layout_marginStart="4dp"
@@ -82,12 +80,12 @@
             app:srcCompat="@drawable/ic_baseline_sentiment_satisfied_alt" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/timeOfDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/createdAt"
+            app:layout_constraintStart_toEndOf="@+id/checkedAt"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.483"
             app:srcCompat="@drawable/ic_round_wb_sunny" />
