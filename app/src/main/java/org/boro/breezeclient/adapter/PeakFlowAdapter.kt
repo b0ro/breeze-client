@@ -26,7 +26,7 @@ class PeakFlowAdapter(val context: Context) :
 
     private val client by lazy { ApiClient.create() }
     private val formatter: DateTimeFormatter =
-        DateTimeFormatter.ofPattern("dd MMMM")
+        DateTimeFormatter.ofPattern("d MMMM")
             .withZone(ZoneId.of("Europe/Warsaw"))
 
     private var results: ArrayList<PeakFlow> = ArrayList()
@@ -102,8 +102,8 @@ class PeakFlowAdapter(val context: Context) :
         holder.view.value.text = results[position].value.toString()
         holder.view.createdAt.text = formatter.format(results[position].checkedAt)
 
-        holder.view.editButton.setOnClickListener {showUpdateDialog(holder, results[position])}
-        holder.view.deleteButton.setOnClickListener {showDeleteDialog(holder, results[position])}
+//        holder.view.editButton.setOnClickListener {showUpdateDialog(holder, results[position])}
+//        holder.view.deleteButton.setOnClickListener {showDeleteDialog(holder, results[position])}
     }
 
     override fun getItemCount() = results.size

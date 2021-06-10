@@ -7,59 +7,111 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="3dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginTop="5dp"
-    android:padding="3dp">
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:padding="3dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
+            android:layout_marginStart="44dp"
             android:text="600"
-            android:textSize="48sp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/postfix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="L/min"
+            android:textAlignment="textEnd"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/value"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/createdAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="16 JUNE"
-            android:textSize="16sp"
+            android:layout_marginEnd="48dp"
+            android:text="16 June"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/secondaryTextColorLight"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/value"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.307" />
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/deleteButton"
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:padding="5dp"
-            app:drawableStartCompat="@drawable/ic_round_delete_24"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.434"
+            app:srcCompat="@drawable/ic_round_more_vert" />
 
-        <TextView
-            android:id="@+id/editButton"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="32dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.578"
+            app:srcCompat="@drawable/ic_baseline_sentiment_satisfied_alt" />
+
+        <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:padding="5dp"
-            app:drawableLeftCompat="@drawable/ic_round_edit_24"
-            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/createdAt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            app:srcCompat="@drawable/ic_round_wb_sunny" />
+
+        <!--        <TextView
+    android:id="@+id/deleteButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="56dp"
+    android:background="@color/secondary_text"
+    app:drawableStartCompat="@drawable/ic_round_delete_24"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/editButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="16dp"
+    android:background="@color/secondary_text"
+    app:drawableLeftCompat="@drawable/ic_round_edit_24"
+    app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+    app:layout_constraintTop_toTopOf="parent" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
